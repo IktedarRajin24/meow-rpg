@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqsktjofut1wj"]
+
+[ext_resource type="Script" path="res://scripts/hazard.gd" id="1_ioega"]
+[ext_resource type="Material" uid="uid://c3od3ubdhc4ov" path="res://materials/hazard.tres" id="1_xsgje"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qkwkk"]
+material = ExtResource("1_xsgje")
+size = Vector2(100, 100)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u2eg4"]
+points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
+
+[node name="Hazard" type="Area3D"]
+script = ExtResource("1_ioega")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_qkwkk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_u2eg4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

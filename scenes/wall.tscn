@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckbf2pu0r0itl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qr0ot"]
+size = Vector3(0.1, 65, 100)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4aau4"]
+points = PackedVector3Array(-0.05, -32.5, -50, 0.05, -32.5, -50, -0.05, -32.5, 50, -0.05, 32.5, -50, 0.05, 32.5, -50, 0.05, -32.5, 50, -0.05, 32.5, 50, 0.05, 32.5, 50)
+
+[node name="Wall" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_qr0ot")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_4aau4")

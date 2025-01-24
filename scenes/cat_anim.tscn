@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0obt1ymkgapt"]
+
+[ext_resource type="PackedScene" uid="uid://5icti1bbp10m" path="res://assets/Cat.gltf" id="1_qsyck"]
+
+[node name="Cat2" instance=ExtResource("1_qsyck")]
+
+[node name="Skeleton3D" parent="AnimalArmature" index="0"]
+bones/0/rotation = Quaternion(2.76945e-17, 8.90543e-09, -0.066281, 0.997801)
+bones/2/rotation = Quaternion(-0.670224, -0.225388, 0.670224, 0.225388)
+bones/3/rotation = Quaternion(0.707107, -1.5482e-06, -1.5482e-06, 0.707107)
+bones/4/rotation = Quaternion(-0.000176622, 0.999489, -0.0319695, -2.22013e-06)
+bones/5/rotation = Quaternion(-0.0039561, -6.71914e-11, -3.83615e-09, 0.999992)
+bones/6/rotation = Quaternion(0.667097, -0.234481, 0.667097, -0.234481)
+bones/7/rotation = Quaternion(0.663584, 0.244246, 0.663584, 0.244246)

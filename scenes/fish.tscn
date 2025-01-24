@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwliee3ihb3ev"]
+
+[ext_resource type="PackedScene" uid="uid://clewb3e4wxt7x" path="res://assets/Fish.fbx" id="1_bugja"]
+[ext_resource type="Script" path="res://scripts/fish.gd" id="1_c4vj8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h76oj"]
+size = Vector3(3.01697, 0.226257, 1)
+
+[node name="Fish" type="Area3D"]
+script = ExtResource("1_c4vj8")
+
+[node name="Fish" parent="." instance=ExtResource("1_bugja")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21574, 0.109522, -0.0260574)
+shape = SubResource("BoxShape3D_h76oj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbfss3aqbmgwi"]
+
+[ext_resource type="Material" uid="uid://be365foh4gwki" path="res://materials/divider.tres" id="1_jft78"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l2b0t"]
+material = ExtResource("1_jft78")
+size = Vector3(1, 30, 30)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dtel2"]
+points = PackedVector3Array(0.5, 15, 15, -0.5, 15, 15, 0.5, -15, 15, 0.5, 15, -15, -0.5, 15, -15, -0.5, -15, 15, 0.5, -15, -15, -0.5, -15, -15)
+
+[node name="divider" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+mesh = SubResource("BoxMesh_l2b0t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+shape = SubResource("ConvexPolygonShape3D_dtel2")
