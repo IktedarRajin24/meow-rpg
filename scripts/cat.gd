@@ -8,7 +8,7 @@ class_name CAT
 
 const WALK_SPEED = 3.0
 const SPRINT_SPEED = 7.0
-const JUMP_VELOCITY = 7.0
+const JUMP_VELOCITY = 5.0
 const ROTATION_SPEED = 5.0 
 var speed = WALK_SPEED
 

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://jvdkifoiew3c" path="res://scenes/slide.tscn" id="10_kbhtp"]
 [ext_resource type="Script" path="res://scripts/mouse_lock.gd" id="11_8eelr"]
 [ext_resource type="PackedScene" uid="uid://bj4qhfp3nn8ty" path="res://scenes/Dog.tscn" id="12_u1trv"]
+[ext_resource type="PackedScene" uid="uid://gd33w2h27qmv" path="res://scenes/platform_moving.tscn" id="14_1cq8i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2lom5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,13 +26,6 @@ background_mode = 2
 sky = SubResource("Sky_nssjk")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="Curve3D" id="Curve3D_di37r"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2, 0.056, -0.028, 0, 0, 0, 0, 0, 0, 2, 0, 25, 0, 0, 0, 0, 0, 0, -25, 0, 25, 0, 0, 0, 0, 0, 0, -25.392, 0, -6.74),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
 
 [node name="level_1" type="Node3D"]
 
@@ -61,10 +55,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 31.0931, 0)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 31.0931, -50)
 
 [node name="Wall04" parent="Walls" instance=ExtResource("1_dxf3k")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 31.0931, 50)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 31.0931, 39.9494)
 
 [node name="Cat" parent="." instance=ExtResource("3_7pxs6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09715, 0, 42.2011)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41.2079, 0, 24.459)
 
 [node name="Dividers" type="Node3D" parent="."]
 
@@ -80,6 +74,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.10
 [node name="divider12" parent="Dividers" instance=ExtResource("4_2t7at")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.941, 0, 39.0954)
 
+[node name="divider23" parent="Dividers" instance=ExtResource("4_2t7at")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.55813, 0, 39.0954)
+
+[node name="divider24" parent="Dividers" instance=ExtResource("4_2t7at")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.99795, 0, 39.0954)
+
 [node name="divider6" parent="Dividers" instance=ExtResource("4_2t7at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3421, 0, -4.81762)
 
@@ -90,7 +90,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 52.612
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.8676, 0, -49.767)
 
 [node name="divider15" parent="Dividers" instance=ExtResource("4_2t7at")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.9164, 0, 39.2946)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.9164, 0, 39.0575)
 
 [node name="divider16" parent="Dividers" instance=ExtResource("4_2t7at")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.9164, 0, -49.7616)
@@ -155,16 +155,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0061, 9.32361, -34.1242)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0043, 12.8726, -41.4175)
 
 [node name="Platform_small6" parent="Platform" instance=ExtResource("6_jdctl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.3873, 14.9515, -30.8089)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6709, 15.8945, -31.6315)
 
 [node name="Platform_small4" parent="Platform" instance=ExtResource("6_jdctl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0226, 14.0566, -38)
 
 [node name="Platform_small2" parent="Platform" instance=ExtResource("6_jdctl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9084, 4.4, -39.8448)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9084, 4.61643, -39.8448)
 
 [node name="Platform_small3" parent="Platform" instance=ExtResource("6_jdctl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7131, 3.10303, -28.8688)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3313, 3.10303, -28.8688)
+
+[node name="Platform_big4" parent="Platform" instance=ExtResource("5_jnob1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.5161, 18.6459, 40.78)
+
+[node name="Platform_big5" parent="Platform" instance=ExtResource("5_jnob1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50.956, 18.646, 17.018)
+
+[node name="Platform_moving" parent="Platform" instance=ExtResource("14_1cq8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.479, 19, 0)
 
 [node name="Fish" parent="." instance=ExtResource("8_0s6nf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7344, 5.03699, -29.1219)
@@ -172,8 +181,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7344, 5.03699, -29.1219)
 [node name="Hazard" parent="." instance=ExtResource("9_vxr8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.3378, 0.1, -70.386)
 
+[node name="Hazard2" parent="." instance=ExtResource("9_vxr8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.3385, 0.1, 29.8421)
+
 [node name="Slide" parent="." instance=ExtResource("10_kbhtp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28.8512, 0, -14.7705)
+
+[node name="Slide2" parent="." instance=ExtResource("10_kbhtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5863, -0.350902, 40.6897)
 
 [node name="MouseLock" type="Node" parent="."]
 script = ExtResource("11_8eelr")
@@ -222,11 +237,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2832, 22.4024, -32.5257)
 [node name="Bulb6" parent="Lights" instance=ExtResource("7_2w2ls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2832, 22.4024, -32.5257)
 
-[node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5144, 0, 0)
-curve = SubResource("Curve3D_di37r")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-1, 1.95607e-10, -8.74225e-08, 0, 0.999997, 0.00223749, 8.74228e-08, 0.00223749, -0.999997, 2, 0.056, -0.028)
-
-[node name="Dog" parent="Path3D/PathFollow3D" instance=ExtResource("12_u1trv")]
+[node name="Dog" parent="." instance=ExtResource("12_u1trv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 16.1956, 0, 0)

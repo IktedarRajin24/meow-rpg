@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqsktjofut1wj"]
+[gd_scene load_steps=8 format=3 uid="uid://dqsktjofut1wj"]
 
 [ext_resource type="Script" path="res://scripts/hazard.gd" id="1_ioega"]
 [ext_resource type="Material" uid="uid://c3od3ubdhc4ov" path="res://materials/hazard.tres" id="1_xsgje"]
@@ -10,6 +10,45 @@ size = Vector2(100, 100)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u2eg4"]
 points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 
+[sub_resource type="Animation" id="Animation_xntcl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cbbae"]
+resource_name = "blink"
+length = 2.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gch3n"]
+_data = {
+"RESET": SubResource("Animation_xntcl"),
+"blink": SubResource("Animation_cbbae")
+}
+
 [node name="Hazard" type="Area3D"]
 script = ExtResource("1_ioega")
 
@@ -18,5 +57,11 @@ mesh = SubResource("PlaneMesh_qkwkk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_u2eg4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gch3n")
+}
+autoplay = "blink"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
