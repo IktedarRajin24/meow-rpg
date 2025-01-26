@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://m7vys3g1lrkt"]
+[gd_scene load_steps=20 format=3 uid="uid://m7vys3g1lrkt"]
 
 [ext_resource type="PackedScene" uid="uid://ckbf2pu0r0itl" path="res://scenes/wall.tscn" id="1_dxf3k"]
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_qlcfw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/mouse_lock.gd" id="11_8eelr"]
 [ext_resource type="PackedScene" uid="uid://bj4qhfp3nn8ty" path="res://scenes/Dog.tscn" id="12_u1trv"]
 [ext_resource type="PackedScene" uid="uid://t3fh8hx33ugf" path="res://scenes/platform_moving.tscn" id="14_1cq8i"]
+[ext_resource type="PackedScene" uid="uid://vwy5ci2400hd" path="res://scenes/start.tscn" id="15_1objl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2lom5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -49,10 +50,8 @@ shadow_enabled = true
 
 [node name="Roof" parent="." instance=ExtResource("1_y8i8j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 0)
-visible = false
 
 [node name="Walls" type="Node3D" parent="."]
-visible = false
 
 [node name="Wall01" parent="Walls" instance=ExtResource("1_dxf3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 31.0931, 0)
@@ -70,7 +69,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 31.
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41.2079, 0, 24.459)
 
 [node name="Dividers" type="Node3D" parent="."]
-visible = false
 
 [node name="divider" parent="Dividers" instance=ExtResource("4_2t7at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.6331, -35)
@@ -317,3 +315,5 @@ transform = Transform3D(0.0266574, 0, -0.999645, 0, 1, 0, 0.999645, 0, 0.0266574
 
 [node name="Dog" parent="Path3D/Path3D2/PathFollow3D" instance=ExtResource("12_u1trv")]
 transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 0, 0, 0)
+
+[node name="Start" parent="." instance=ExtResource("15_1objl")]
