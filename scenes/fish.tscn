@@ -1,10 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwliee3ihb3ev"]
+[gd_scene load_steps=9 format=3 uid="uid://bwliee3ihb3ev"]
 
 [ext_resource type="PackedScene" uid="uid://clewb3e4wxt7x" path="res://assets/Fish.fbx" id="1_bugja"]
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_c4vj8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h76oj"]
 size = Vector3(3.01697, 0.226257, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22qvr"]
+transparency = 1
+albedo_color = Color(1, 1, 0.380392, 0.196078)
+emission_enabled = true
+emission = Color(1, 1, 0.380392, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jqqb8"]
+material = SubResource("StandardMaterial3D_22qvr")
+radius = 1.5
+height = 1.5
+
+[sub_resource type="Animation" id="Animation_xwep5"]
+resource_name = "BLINK"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tefn5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6c3r5"]
+_data = {
+"BLINK": SubResource("Animation_xwep5"),
+"RESET": SubResource("Animation_tefn5")
+}
 
 [node name="Fish" type="Area3D"]
 script = ExtResource("1_c4vj8")
@@ -14,5 +63,14 @@ script = ExtResource("1_c4vj8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21574, 0.109522, -0.0260574)
 shape = SubResource("BoxShape3D_h76oj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_jqqb8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6c3r5")
+}
+autoplay = "BLINK"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
