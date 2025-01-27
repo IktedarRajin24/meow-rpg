@@ -15,6 +15,12 @@ run/main_scene="res://scenes/level_1.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://Autoloads/game_manager.gd"
+ScoreManager="*res://Autoloads/score_manager.gd"
+SignalManager="*res://Autoloads/signal_manager.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/csg_converter/plugin.cfg")

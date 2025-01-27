@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://t3fh8hx33ugf"]
+[gd_scene load_steps=6 format=3 uid="uid://t3fh8hx33ugf"]
 
-[ext_resource type="Script" path="res://platform_moving.gd" id="1_gr1hh"]
+[ext_resource type="Script" path="res://scripts/platform_moving.gd" id="1_gr1hh"]
+[ext_resource type="Texture2D" uid="uid://c7bq6qbcinn1s" path="res://assets/textures/Asset 14.png" id="2_a02ss"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctawo"]
+albedo_texture = ExtResource("2_a02ss")
+uv1_scale = Vector3(20, 20, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j1lru"]
+material = SubResource("StandardMaterial3D_ctawo")
 size = Vector3(10, 2, 10)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_km31r"]

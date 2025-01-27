@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbuhgs5lqe7oc"]
+[gd_scene load_steps=5 format=3 uid="uid://dbuhgs5lqe7oc"]
 
-[ext_resource type="Material" uid="uid://oxqpihtwwbbt" path="res://materials/platform.tres" id="1_ws7c3"]
+[ext_resource type="Texture2D" uid="uid://cm6l50dkdhxfl" path="res://assets/textures/Asset 5.png" id="1_ysms4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nvkt"]
+albedo_texture = ExtResource("1_ysms4")
+emission_enabled = true
+emission = Color(0.192157, 0.254902, 0.286275, 1)
+uv1_scale = Vector3(100, 100, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_b5spq"]
-material = ExtResource("1_ws7c3")
+material = SubResource("StandardMaterial3D_4nvkt")
 size = Vector3(40, 2, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u2xw2"]

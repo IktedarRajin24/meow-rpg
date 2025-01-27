@@ -1,7 +1,12 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://c3od3ubdhc4ov"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c3od3ubdhc4ov"]
+
+[ext_resource type="Texture2D" uid="uid://dqw0reoa2d6lh" path="res://assets/textures/Asset 9.png" id="1_rf7x5"]
+[ext_resource type="Texture2D" uid="uid://gh47ki82fay7" path="res://assets/textures/Asset 12.png" id="2_tra4m"]
 
 [resource]
-albedo_color = Color(0, 0.494608, 0.00750666, 1)
-emission_enabled = true
+albedo_color = Color(6.78644e-06, 0.837696, 0.0240454, 1)
+albedo_texture = ExtResource("1_rf7x5")
 emission = Color(0, 1, 0, 1)
 emission_energy_multiplier = 0.5
+emission_texture = ExtResource("2_tra4m")
+uv1_scale = Vector3(20, 20, 20)

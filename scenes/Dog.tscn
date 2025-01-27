@@ -823,7 +823,7 @@ material = SubResource("StandardMaterial3D_o5hr6")
 [sub_resource type="SphereShape3D" id="SphereShape3D_rs8pw"]
 
 [node name="Dog" type="CharacterBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 0, 0, 0)
 script = ExtResource("1_h8lpo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
