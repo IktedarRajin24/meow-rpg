@@ -10,7 +10,7 @@ class_name CAT
 const WALK_SPEED = 3.0
 const SPRINT_SPEED = 7.0
 const JUMP_VELOCITY = 5.0
-const ROTATION_SPEED = 5.0 
+const ROTATION_SPEED = 0.05 
 var speed = WALK_SPEED
 
 func _physics_process(delta: float) -> void:
@@ -45,7 +45,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func death()-> void:
+	SignalManager.ON_CAT_DIE.emit()
 	set_physics_process(false)
+	set_process_input(false)
 	cat_anim.play("Death")
 	
 func play_jump_anim() -> void:
@@ -66,7 +68,6 @@ func play_idle_anim() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotation.y -= event.relative.x * GameManager.MOUSE_SENSITIVITY
-	
 
 
 func _on_timer_timeout() -> void:

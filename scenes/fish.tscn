@@ -56,6 +56,8 @@ _data = {
 }
 
 [node name="Fish" type="Area3D"]
+collision_layer = 0
+monitorable = false
 script = ExtResource("1_c4vj8")
 
 [node name="Fish" parent="." instance=ExtResource("1_bugja")]
@@ -65,7 +67,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21574, 0.109522, -0.026057
 shape = SubResource("BoxShape3D_h76oj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
 mesh = SubResource("SphereMesh_jqqb8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -73,3 +74,5 @@ libraries = {
 "": SubResource("AnimationLibrary_6c3r5")
 }
 autoplay = "BLINK"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

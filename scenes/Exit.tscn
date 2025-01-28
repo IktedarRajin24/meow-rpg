@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcut7wwy8ppnf"]
+
+[ext_resource type="FontFile" uid="uid://jitd3oqictip" path="res://assets/Fonts/Coopers Town.otf" id="1_qfwgo"]
+[ext_resource type="Script" path="res://scenes/exit.gd" id="1_x0do0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aho8n"]
+albedo_color = Color(0.984314, 0.0862745, 0.0941176, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_52xww"]
+material = SubResource("StandardMaterial3D_aho8n")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ve1oa"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[node name="Exit" type="Area3D"]
+transform = Transform3D(3.82137e-15, 8.74228e-08, 2, 2, -8.74228e-08, 0, 8.74228e-08, 2, -8.74228e-08, 0, 2, 0)
+script = ExtResource("1_x0do0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_52xww")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_ve1oa")
+
+[node name="WinOrRetryText" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 70.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_qfwgo")
+theme_override_font_sizes/font_size = 24
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,9 +1,10 @@
 extends Control
 
-@onready var score: Label = $Score
+@onready var score: Label = $VBoxContainer/Score
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#ScoreManager.score_board = score
 	SignalManager.ON_SCORE_UPDATE.connect(on_score_update)
 
 

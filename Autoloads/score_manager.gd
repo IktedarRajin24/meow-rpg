@@ -1,14 +1,12 @@
 extends Node
 var _score: int = 0
 
+var score_board : Label
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func get_score() -> int:
 	return _score
@@ -18,3 +16,4 @@ func set_score(value: int) -> void:
 
 func incerement_score()-> void:
 	set_score(_score+1)
+	#score_board.text = str(_score)

@@ -28,5 +28,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_cat_detection(body: Node3D) -> void:
 	if body is CAT:
-		is_following_path = false
+		body.death()
 		

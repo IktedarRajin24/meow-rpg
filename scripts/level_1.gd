@@ -14,6 +14,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	ScoreManager.set_score(0)
 	set_active_camera(main_scene_camera)
 	deactivate_camera(player_camera)
 	start_text.set_process(false)
@@ -58,3 +59,7 @@ func camera_pause(interval: int) -> void:
 		#3:
 			#await get_tree().create_timer(1).timeout
 			#anim.play("cut_scene")
+
+
+func _on_fish_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.

@@ -1,8 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://86a6oi6a8yxg"]
+[gd_scene load_steps=6 format=3 uid="uid://86a6oi6a8yxg"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_lb4vd"]
 [ext_resource type="Texture2D" uid="uid://crfyedhg6x8oj" path="res://assets/fish-sprite.png" id="1_ob74n"]
 [ext_resource type="FontFile" uid="uid://jitd3oqictip" path="res://assets/Fonts/Coopers Town.otf" id="2_udw53"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mibb"]
+bg_color = Color(0.277528, 0.277528, 0.277528, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_adgev"]
 font = ExtResource("2_udw53")
@@ -17,23 +29,35 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lb4vd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(961, 83)
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 950.0
+offset_top = 50.0
+offset_right = 1130.0
+offset_bottom = 130.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4mibb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -193.0
+offset_top = 47.0
+offset_right = -32.0
+offset_bottom = 127.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(53.0001, 43)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_ob74n")
 
-[node name="Score" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.997396
-anchor_top = -0.0108025
-anchor_right = 0.997396
-anchor_bottom = -0.0108025
-offset_left = -119.0
-offset_top = 65.0
-offset_right = -79.0
-offset_bottom = 105.0
-grow_horizontal = 0
+[node name="Score" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_adgev")
 horizontal_alignment = 2
