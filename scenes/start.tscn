@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://vwy5ci2400hd"]
+[gd_scene load_steps=9 format=3 uid="uid://vwy5ci2400hd"]
 
 [ext_resource type="FontFile" uid="uid://jitd3oqictip" path="res://assets/Fonts/Coopers Town.otf" id="1_b7jtp"]
 [ext_resource type="Script" path="res://scripts/start.gd" id="1_gnbj3"]
+[ext_resource type="AudioStream" uid="uid://b0vrswgua5c1j" path="res://assets/audio/game-start-6104.mp3" id="3_uwpxv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jyftv"]
 font = ExtResource("1_b7jtp")
@@ -102,3 +103,6 @@ libraries = {
 "": SubResource("AnimationLibrary_505h3")
 }
 autoplay = "text_blink"
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uwpxv")

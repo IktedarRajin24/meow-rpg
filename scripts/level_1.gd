@@ -8,12 +8,14 @@ extends Node3D
 @export var player_camera: Camera3D
 @export var start_text: Control
 @export var cat: CAT
+@onready var audio_stream_player_3d: AudioStreamPlayer = $AudioStreamPlayer3D
 
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	audio_stream_player_3d.play()
 	ScoreManager.set_score(0)
 	set_active_camera(main_scene_camera)
 	deactivate_camera(player_camera)

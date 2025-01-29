@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://djdfhcwn1f0d7"]
+[gd_scene load_steps=17 format=3 uid="uid://djdfhcwn1f0d7"]
 
 [ext_resource type="Script" path="res://scripts/cat.gd" id="1_2ssvf"]
 [ext_resource type="ArrayMesh" uid="uid://bcchbtaqnkr4q" path="res://assets/Cat/cat.res" id="1_aeuhu"]
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="3_avki2"]
+[ext_resource type="AudioStream" uid="uid://dhsoytjdp7p3n" path="res://assets/audio/angry-cat-meow-82091.mp3" id="4_xut5j"]
+[ext_resource type="AudioStream" uid="uid://dbs1buutprc7u" path="res://assets/audio/eating-sound-effect-36186.mp3" id="5_6ksy6"]
 
 [sub_resource type="Skin" id="Skin_pytsp"]
 resource_name = "Skin"
@@ -918,5 +920,13 @@ visible = false
 wait_time = 20.0
 one_shot = true
 autostart = true
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_xut5j")
+volume_db = 30.0
+
+[node name="EatingSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.704256, -1.39247)
+stream = ExtResource("5_6ksy6")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

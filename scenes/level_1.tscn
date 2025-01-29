@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://m7vys3g1lrkt"]
+[gd_scene load_steps=29 format=3 uid="uid://m7vys3g1lrkt"]
 
 [ext_resource type="PackedScene" uid="uid://ckbf2pu0r0itl" path="res://scenes/wall.tscn" id="1_dxf3k"]
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_qlcfw"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://86a6oi6a8yxg" path="res://scenes/hud.tscn" id="17_o7tv5"]
 [ext_resource type="PackedScene" uid="uid://kvy4aysqqhoj" path="res://scenes/game_over_ui.tscn" id="18_kraqm"]
 [ext_resource type="PackedScene" uid="uid://dcut7wwy8ppnf" path="res://scenes/Exit.tscn" id="19_c6xhf"]
+[ext_resource type="AudioStream" uid="uid://cup6ckc2p1dqv" path="res://assets/audio/game-music-loop-3-144252.mp3" id="20_33wlc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2lom5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -602,6 +603,11 @@ vertical_alignment = 1
 
 [node name="Exit" parent="." instance=ExtResource("19_c6xhf")]
 transform = Transform3D(3.82137e-15, 8.74228e-08, 2, 2, -8.74228e-08, 0, 8.74228e-08, 2, -8.74228e-08, -4.96208, 22.5829, -49.1548)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_33wlc")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

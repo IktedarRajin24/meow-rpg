@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwliee3ihb3ev"]
+[gd_scene load_steps=10 format=3 uid="uid://bwliee3ihb3ev"]
 
 [ext_resource type="PackedScene" uid="uid://clewb3e4wxt7x" path="res://assets/Fish.fbx" id="1_bugja"]
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_c4vj8"]
+[ext_resource type="AudioStream" uid="uid://dbs1buutprc7u" path="res://assets/audio/eating-sound-effect-36186.mp3" id="3_87fjc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h76oj"]
 size = Vector3(3.01697, 0.226257, 1)
@@ -74,5 +75,9 @@ libraries = {
 "": SubResource("AnimationLibrary_6c3r5")
 }
 autoplay = "BLINK"
+
+[node name="EaingAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_87fjc")
+volume_db = 30.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
