@@ -10,7 +10,7 @@ class_name CAT
 const WALK_SPEED = 3.0
 const SPRINT_SPEED = 7.0
 const JUMP_VELOCITY = 5.0
-const ROTATION_SPEED = 0.05 
+const ROTATION_SPEED = 5.0
 var speed = WALK_SPEED
 
 func _physics_process(delta: float) -> void:
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 		
-		#self.basis = lerp(self.basis, Basis.looking_at(direction), ROTATION_SPEED * delta)
+		self.basis = lerp(self.basis, Basis.looking_at(direction), ROTATION_SPEED * delta)
 		play_walk_run_anim()
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
@@ -65,9 +65,9 @@ func play_idle_anim() -> void:
 	if is_on_floor() and velocity.y == 0:
 		cat_anim.play("Idle")
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		rotation.y -= event.relative.x * GameManager.MOUSE_SENSITIVITY
+#func _input(event: InputEvent) -> void:
+	#if event is InputEventMouseMotion:
+		#rotation.y -= event.relative.x * GameManager.MOUSE_SENSITIVITY
 
 
 func _on_timer_timeout() -> void:

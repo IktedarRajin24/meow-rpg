@@ -1,6 +1,7 @@
 extends Area3D
 
 var score = ScoreManager.get_score()
+var isaActive = false
 
 @onready var win_or_retry_text: Label = $WinOrRetryText
 @onready var timer: Timer = $Timer
@@ -8,12 +9,13 @@ var score = ScoreManager.get_score()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	win_or_retry_text.hide()
+	SignalManager.ON_SCORE_UPDATE.connect(on_score_update)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if ScoreManager._score == 6:
-		change_color(Color.GREEN)
+	pass
+	
 
 
 func _on_body_entered(body: Node3D) -> void:
@@ -36,12 +38,16 @@ func _on_timer_timeout() -> void:
 	win_or_retry_text.hide()
 
 func change_color(color: Color)-> void:
+	pass
 	var child = self.get_child(0)
-	# Check if the child is a MeshInstance3D
 	if child is MeshInstance3D:
-		if child.get_surface_override_material(0) == null:
-			var metarial = StandardMaterial3D.new()
-			child.set_surface_override_material(0, metarial)
-		var material = child.get_surface_material(0)
-		if material is StandardMaterial3D:
+		var material = child.get_active_material(0)
+		if !isaActive:
 			material.albedo_color = color
+			isaActive == true
+	
+func on_score_update()-> void:
+	score = ScoreManager.get_score()
+	print(score)
+	if score == 6:
+		change_color(Color.GREEN)

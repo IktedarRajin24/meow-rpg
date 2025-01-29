@@ -87,7 +87,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(nan, nan, nan, 0, 0.1, 5, 10, 15, 20),
@@ -99,7 +99,7 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(nan, nan, 0, 0.1, 5, 10, 15, 20),
@@ -212,8 +212,10 @@ shadow_enabled = true
 
 [node name="Roof" parent="." instance=ExtResource("1_y8i8j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 0)
+visible = false
 
 [node name="Walls" type="Node3D" parent="."]
+visible = false
 
 [node name="Wall01" parent="Walls" instance=ExtResource("1_dxf3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 31.0931, 0)
@@ -334,7 +336,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0043, 13.093, -41.4175)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0043, 15.768, -33.5994)
 
 [node name="Platform_small6" parent="Platform" instance=ExtResource("6_jdctl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4305, 14.5993, -31.6315)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2797, 14.3644, -31.6315)
 
 [node name="Platform_small8" parent="Platform" instance=ExtResource("6_jdctl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4384, 15.8945, -8.18799)
@@ -349,13 +351,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.970612, 3.82657, -4.34469)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.970612, 5.56775, -9.78341)
 
 [node name="Platform_small14" parent="Platform" instance=ExtResource("6_jdctl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.55899, 7.00781, -8.53126)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.55899, 7.00781, -9.54781)
+
+[node name="Platform_small16" parent="Platform" instance=ExtResource("6_jdctl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.72115, 9.41501, -5.81441)
 
 [node name="Platform_small15" parent="Platform" instance=ExtResource("6_jdctl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49975, 18.1176, -9.02686)
 
 [node name="Platform_small4" parent="Platform" instance=ExtResource("6_jdctl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6334, 14.0566, -38)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6334, 16.3691, -38)
 
 [node name="Platform_small2" parent="Platform" instance=ExtResource("6_jdctl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5872, 7.08144, -38.646)
@@ -376,7 +381,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50.95
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5487, 8.50597, -4.658)
 
 [node name="platform_moving5" parent="Platform" instance=ExtResource("14_1cq8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41053, 14.9636, 1.52792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14476, 15.6423, 2.22479)
 
 [node name="platform_moving4" parent="Platform" instance=ExtResource("14_1cq8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.2984, 13.7714, -15.2595)
