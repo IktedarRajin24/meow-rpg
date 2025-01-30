@@ -1,8 +1,6 @@
 extends Node
 var _score: int = 0
 
-var score_board : Label
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass 

@@ -48,6 +48,5 @@ func change_color(color: Color)-> void:
 	
 func on_score_update()-> void:
 	score = ScoreManager.get_score()
-	print(score)
 	if score == 6:
 		change_color(Color.GREEN)

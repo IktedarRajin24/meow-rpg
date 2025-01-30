@@ -157,16 +157,16 @@ tracks/5/keys = {
 "args": [1],
 "method": &"camera_pause"
 }, {
-"args": [2],
-"method": &"camera_pause"
-}, {
 "args": [1],
 "method": &"camera_pause"
 }, {
 "args": [1],
 "method": &"camera_pause"
 }, {
-"args": [0],
+"args": [1],
+"method": &"camera_pause"
+}, {
+"args": [1],
 "method": &"camera_pause"
 }]
 }
@@ -232,6 +232,15 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 31.
 
 [node name="Cat" parent="." instance=ExtResource("3_7pxs6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41.2079, 0, 24.459)
+
+[node name="Skeleton3D" parent="Cat/Cat2/AnimalArmature" index="0"]
+bones/1/rotation = Quaternion(-0.707107, -1.49012e-08, 0.707107, 1.49012e-08)
+bones/2/rotation = Quaternion(-0.707107, 0, 0.707107, 1.49012e-08)
+bones/3/rotation = Quaternion(0.707107, -1.5482e-06, -1.5482e-06, 0.707107)
+bones/4/rotation = Quaternion(-1.43484e-11, 1, 0, -2.22127e-06)
+bones/5/rotation = Quaternion(-0.0039561, -1.10661e-10, -1.10661e-10, 0.999992)
+bones/6/rotation = Quaternion(0.707107, 1.49012e-08, 0.707107, 0)
+bones/7/rotation = Quaternion(0.707107, 0, 0.707107, 1.49012e-08)
 
 [node name="Dividers" type="Node3D" parent="."]
 
