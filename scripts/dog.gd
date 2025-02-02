@@ -28,6 +28,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_cat_detection(body: Node3D) -> void:
-	if body is CAT:
+	if body is CAT and GameManager.IS_ALIVE:
 		body.death()
 		

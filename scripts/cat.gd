@@ -5,7 +5,8 @@ class_name CAT
 @onready var cat_anim: AnimationPlayer = $Cat2/AnimationPlayer
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var timer: Timer = $Timer
-@onready var death_sound: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var eating_sound: AudioStreamPlayer3D = $EatingSound
+@onready var death_sound: AudioStreamPlayer3D = $DeathSound
 
 const WALK_SPEED = 3.0
 const SPRINT_SPEED = 7.0
@@ -47,11 +48,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func death()-> void:
-	SignalManager.ON_CAT_DIE.emit()
 	death_sound.play()
+	SignalManager.ON_CAT_DIE.emit()
 	set_physics_process(false)
 	set_process_input(false)
 	cat_anim.play("Death")
+	GameManager.IS_ALIVE = false
 	
 func play_jump_anim() -> void:
 	if not is_on_floor() and velocity.y > 0:
@@ -78,4 +80,7 @@ func _on_timer_timeout() -> void:
 
 
 func cat_eat_sound():
-	$EatingSound.play()
+	eating_sound.play()
+	
+func cat_death_sound():
+	death_sound.play()

@@ -25,3 +25,4 @@ func _on_timer_timeout() -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().reload_current_scene()
+	GameManager.IS_ALIVE = true
